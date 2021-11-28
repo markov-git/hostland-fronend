@@ -41,6 +41,7 @@ jobs:
           host: $SSH_HOST
           username: $SSH_USER
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: $SSH_PORT
           rm: true
           source: build/*
           target: "$DEPLOY_PATH"
