@@ -7,13 +7,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: node:14.17.0-alpine
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          node-version: '16'
-      - run: npm install
-      - name: Build
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+      - name: Build project
         run: npm run build
       - name: Archive build
         uses: actions/upload-artifact@v2
@@ -40,3 +46,4 @@ jobs:
           rm: true
           source: build/*
           target: "~/${{ secrets.SSH_HOST }}/nodejs_app/www/public/newHome"
+          strip_components: 1
