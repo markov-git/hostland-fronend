@@ -185,7 +185,7 @@ a 40 40 0 0 1 0 -80">
 					<h2 data-language="myWorks">Recent Works</h2><br/>
 				</div>
 				<div className={css.content}>
-					// Maze Creeper
+					{/*// Maze Creeper*/}
 					<div className={css.workBx}>
 						<div className={css.imgBx}>
 							<img src="./images/w/maze.png" alt="img"/>
@@ -201,7 +201,7 @@ a 40 40 0 0 1 0 -80">
 							</a>
 						</div>
 					</div>
-					// Crypto
+					{/*// Crypto*/}
 					<div className="workBx">
 						<div className="imgBx">
 							<img src="./images/w/crypto.png" alt="img"/>
@@ -216,7 +216,7 @@ a 40 40 0 0 1 0 -80">
 							</a>
 						</div>
 					</div>
-					// Logitech
+					{/*// Logitech*/}
 					<div className="workBx">
 						<div className="imgBx">
 							<img src="./images/w/logitech.png" alt="img"/>
@@ -231,7 +231,7 @@ a 40 40 0 0 1 0 -80">
 							</a>
 						</div>
 					</div>
-					// Tic Tac
+					{/*// Tic Tac*/}
 					<div className="workBx">
 						<div className="imgBx">
 							<img src="./images/w/tictac.png" alt="img"/>
@@ -246,7 +246,7 @@ a 40 40 0 0 1 0 -80">
 							</a>
 						</div>
 					</div>
-					// Web Excel
+					{/*// Web Excel*/}
 					<div className="workBx">
 						<div className="imgBx">
 							<img src="./images/w/excel.png" alt="img"/>
@@ -261,7 +261,7 @@ a 40 40 0 0 1 0 -80">
 							</a>
 						</div>
 					</div>
-					// Server
+					{/*// Server*/}
 					<div className="workBx">
 						<div className="imgBx">
 							<img src="./images/w/server.png" alt="img"/>
