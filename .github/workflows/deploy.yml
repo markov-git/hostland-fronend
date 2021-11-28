@@ -1,0 +1,46 @@
+name: deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - run: npm install
+      - name: Build
+        run: npm run build
+      - name: Archive build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_PATH: ~/${{ secrets.SSH_HOST }}/nodejs_app/www/public/newHome
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_PORT: 1024
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+      - name: Copy build to the server
+        uses: appleboy/scp-action@v0.1.1
+        with:
+          host: $SSH_HOST
+          username: $SSH_USER
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          rm: true
+          source: build/*
+          target: "$DEPLOY_PATH"
