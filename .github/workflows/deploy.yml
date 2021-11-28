@@ -24,11 +24,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    env:
-      DEPLOY_PATH: ~/${{ secrets.SSH_HOST }}/nodejs_app/www/public/newHome
-      SSH_USER: ${{ secrets.SSH_USER }}
-      SSH_HOST: ${{ secrets.SSH_HOST }}
-      SSH_PORT: 1024
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v2
@@ -40,11 +35,15 @@ jobs:
         with:
           host: $SSH_HOST
           username: $SSH_USER
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: $SSH_PRIVATE_KEY
           port: $SSH_PORT
           rm: true
           source: build/*
-          target: "$DEPLOY_PATH"
+          target: $DEPLOY_PATH
         env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          DEPLOY_PATH: ~/$SSH_HOST/nodejs_app/www/public/newHome
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: 1024
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
