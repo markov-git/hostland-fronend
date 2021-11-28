@@ -33,17 +33,10 @@ jobs:
       - name: Copy build to the server
         uses: appleboy/scp-action@v0.1.1
         with:
-          host: $SSH_HOST
-          username: $SSH_USER
-          key: $SSH_PRIVATE_KEY
-          port: $SSH_PORT
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 1024
           rm: true
           source: build/*
-          target: $DEPLOY_PATH
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          DEPLOY_PATH: ~/$SSH_HOST/nodejs_app/www/public/newHome
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PORT: 1024
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          target: "~/${{ secrets.SSH_HOST }}/nodejs_app/www/public/newHome"
