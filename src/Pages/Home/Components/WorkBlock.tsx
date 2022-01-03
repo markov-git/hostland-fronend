@@ -21,7 +21,7 @@ export const WorkBlock: React.FC<WorkBlockProps> = ({work}) => {
 	return (
 		<a
 			className="
-			relative w-[265px] h-[265px] m-3 bg-amber-500 bg-contain cursor-pointer block
+			relative w-[265px] h-[265px] m-3 bg-amber-500 bg-cover cursor-pointer block
 			before:absolute before:bg-[#00bcd4] before:content-[''] before:top-[-3px] before:right-[-12px] before:w-1/2 before:h-[3px]
 			after:absolute after:bg-[#00bcd4] after:content-[''] after:top-[-12px] after:right-[-3px] after:w-[3px] after:h-1/2
 			"
