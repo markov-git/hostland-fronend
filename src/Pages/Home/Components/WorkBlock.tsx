@@ -29,6 +29,7 @@ export const WorkBlock: React.FC<WorkBlockProps> = ({work}) => {
 				backgroundImage: `url(${getRealUrl(work.imgSrc)})`,
 			}}
 			target="_blank"
+			rel="noreferrer"
 			href={getRealUrl(work.url)}
 		>
 			<div className="w-full h-full bg-black opacity-0 hover:opacity-100 transition-opacity text-[#fff] text-center tracking-[1px]
