@@ -36,5 +36,12 @@ export const worksList: WorkType[] = [
 		description: 'Native JavaScript',
 		imgSrc: '/images/w/excel.png',
 		link: { caption: 'GitHub', url: 'https://github.com/markov-git/excel' },
+	}, {
+		id: 5,
+		url: '/testTask-pop-the-balls',
+		caption: 'Pop The Balls',
+		description: 'Test task\nNative JS and canvas',
+		imgSrc: '/images/w/popTheBalls.png',
+		link: { caption: 'GitHub', url: 'https://github.com/markov-git/testTask-pop-the-balls' },
 	},
 ];
